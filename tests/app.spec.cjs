@@ -53,7 +53,7 @@ test('workspace backup triggers a JSON download', async ({ page }) => {
   await page.locator('.nav [data-page="settings"]').click();
   await page.locator('[data-settings-tab="data"]').click();
   const downloadPromise = page.waitForEvent('download');
-  await page.locator('[data-action="backup"]').click();
+  await page.getByRole('button', { name: '↧ Download JSON backup' }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toMatch(/^marginguard-backup-.*\.json$/);
 });
