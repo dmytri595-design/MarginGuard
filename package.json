@@ -1,0 +1,13 @@
+{
+  "name": "marginguard",
+  "version": "1.0.0",
+  "private": false,
+  "description": "A local-first pricing and profitability workbench for small digital businesses.",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
