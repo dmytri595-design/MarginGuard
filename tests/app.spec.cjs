@@ -42,6 +42,11 @@ test('price lab updates and saves a scenario', async ({ page }) => {
   await page.locator('[data-page="lab"]').click();
   await page.locator('#lab-price').fill('129');
   await expect(page.locator('#lab-profit')).not.toHaveText('$0.00');
+  const getTargetPrice = async () => Number((await page.locator('#lab-targetprice').textContent()).replace(/[^0-9.]/g, ''));
+  const noDiscountTarget = await getTargetPrice();
+  await page.locator('#lab-discount').evaluate(el => { el.value = '20'; el.dispatchEvent(new Event('input', { bubbles: true })); });
+  const discountedTarget = await getTargetPrice();
+  expect(discountedTarget).toBeGreaterThan(noDiscountTarget);
   page.once('dialog', dialog => dialog.accept('Playwright test scenario'));
   await page.locator('[data-action="save-scenario"]').click();
   await page.locator('[data-page="scenarios"]').click();

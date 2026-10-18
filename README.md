@@ -37,8 +37,8 @@ For one sale, let P be the listed price, d the discount rate, f the percentage f
 - Percentage fee = effective revenue × f
 - Contribution = effective revenue − C − percentage fee
 - Contribution margin = contribution ÷ effective revenue × 100
-- Break-even listed price = C ÷ (1 − f)
-- Listed price for a target margin t = C ÷ (1 − f − t)
+- Break-even listed price = C ÷ ((1 − d) × (1 − f))
+- Listed price for a target margin t = C ÷ ((1 − d) × (1 − f − t))
 
 The target-price value is undefined when target margin plus percentage fees reach or exceed 100%; the interface displays a dash rather than a misleading monetary value.
 

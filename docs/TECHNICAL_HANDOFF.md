@@ -18,8 +18,8 @@ Let P be listed price, d the discount fraction, f the platform fee fraction, and
 - Percentage fee F = R × f
 - Contribution π = R − C − F
 - Contribution margin = π / R × 100 for R > 0
-- Break-even listed price = C / (1 − f)
-- Target-margin listed price = C / (1 − f − t), where t is the target margin fraction
+- Break-even listed price = C / ((1 − d) × (1 − f))
+- Target-margin listed price = C / ((1 − d) × (1 − f − t)), where t is the target margin fraction
 
 A target-price value is infeasible when the denominator is not positive. The UI then shows a dash. The model excludes tax, refunds, customer-acquisition costs, and expenses the operator has not entered.
 
