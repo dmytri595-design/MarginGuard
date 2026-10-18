@@ -10,7 +10,7 @@ test('dashboard and core views render', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Profitability overview' })).toBeVisible();
   await expect(page.locator('.metric')).toHaveCount(4);
   await expect(page.locator('.chart svg')).toBeVisible();
-  await page.locator('[data-page="portfolio"]').click();
+  await page.locator('.nav [data-page="portfolio"]').click();
   await expect(page.getByRole('heading', { name: 'Product portfolio' })).toBeVisible();
   await expect(page.locator('tbody tr')).toHaveCount(6);
   await page.locator('[data-page="lab"]').click();
@@ -31,7 +31,7 @@ test('add a product and search for it', async ({ page }) => {
   await page.locator('#p-volume').fill('10');
   await page.locator('#p-description').fill('Created by browser smoke test');
   await page.locator('#save-product').click();
-  await page.locator('[data-page="portfolio"]').click();
+  await page.locator('.nav [data-page="portfolio"]').click();
   await page.locator('#search').fill('QA test product');
   await expect(page.getByText('QA test product')).toBeVisible();
   await expect(page.locator('tbody tr')).toHaveCount(1);
@@ -50,7 +50,7 @@ test('price lab updates and saves a scenario', async ({ page }) => {
 });
 
 test('workspace backup triggers a JSON download', async ({ page }) => {
-  await page.locator('[data-page="settings"]').click();
+  await page.locator('.nav [data-page="settings"]').click();
   await page.locator('[data-settings-tab="data"]').click();
   const downloadPromise = page.waitForEvent('download');
   await page.locator('[data-action="backup"]').click();
