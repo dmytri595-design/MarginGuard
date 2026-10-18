@@ -34,6 +34,9 @@ Run browser checks: npm install; npx playwright install chromium; npm run test:e
 
 The CI workflow runs Playwright against Node.js 22 and uploads short-retention failure traces.
 
+## Current hosted deployment
+Production alias: https://marginguard-studio.vercel.app. Vercel reports deployment dpl_3rsNt8YVEFr3e4A2NkjhpZm4NqoY as READY. Project-level SSO protection has been disabled so the demo can be opened without team authentication; still confirm anonymous access in a private browser window. The GitHub source repository is not linked to Vercel because the current Vercel connection lacks permission to establish the GitHub login connection. The hosted site is a static snapshot; source commits do not automatically deploy.
+
 ## Deployment transfer
 The app can run on any static host. To enable automatic Vercel production deploys, link this GitHub repository in the new owner's account and select main as the production branch. Verify ownership, host settings, domain, access policy, and the live URL after transfer; the existing deployment is not itself an ownership transfer.
 

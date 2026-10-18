@@ -54,6 +54,11 @@ The currency preference only changes number formatting; it does not convert save
 - Draft acquisition listing: docs/SALE_LISTING.md
 - IP and licensing notes: docs/IP_AND_LICENSE.md
 
+## Hosted demo
+Production deployment: https://marginguard-studio.vercel.app
+
+Vercel reports the deployment as READY and the project access setting is configured without SSO protection. The Vercel/GitHub login connection is not linked, so this deployment is a static snapshot; new source commits do not automatically redeploy it. Open the URL in a private browser window before putting it on an acquisition listing.
+
 ## Deployment
 The application is static and can run on Vercel, Netlify, Cloudflare Pages, or any static web server. Connect this GitHub repository to the buyer's hosting account and verify the deployment URL and production branch before sharing a demo as live.
 

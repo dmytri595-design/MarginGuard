@@ -19,6 +19,10 @@ Small SaaS operators, agencies, and digital-product sellers often price based on
 - Saved scenarios, search/filter, CSV export, JSON backup/restore, preferences, and demo reset.
 - Source and technical handoff documentation, browser smoke tests, and CI workflow.
 
+## Demo and source
+- Hosted deployment: https://marginguard-studio.vercel.app (Vercel reports READY; verify it in a private browser window before public listing).
+- Source code and documentation: https://github.com/dmytri595-design/MarginGuard
+
 ## Technology
 HTML5, CSS3, vanilla JavaScript, localStorage, Playwright browser tests, GitHub Actions, static hosting.
 
