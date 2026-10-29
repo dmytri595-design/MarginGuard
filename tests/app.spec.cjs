@@ -71,7 +71,7 @@ test('CSV export protects formula-like cells even when whitespace comes first', 
     localStorage.setItem(key, JSON.stringify(workspace));
   });
   await page.reload();
-  await page.locator('[data-page="portfolio"]').click();
+  await page.locator('.nav [data-page="portfolio"]').click();
   const downloadPromise = page.waitForEvent('download');
   await page.locator('[data-action="export-csv"]').click();
   const download = await downloadPromise;
@@ -90,7 +90,7 @@ test('JSON restore sanitizes settings and ignores malformed scenarios', async ({
     workspace.scenarios = [{ id: 'bad', productId: 'not-a-product', name: '<img src=x>', date: 'not-a-date', price: -2 }];
     return JSON.stringify({ ...workspace, product: 'MarginGuard', format: 'marginguard-workspace-backup' });
   });
-  await page.locator('[data-page="settings"]').click();
+  await page.locator('.nav [data-page="settings"]').click();
   await page.locator('[data-settings-tab="data"]').click();
   page.once('dialog', dialog => dialog.accept());
   await page.locator('#import-file').setInputFiles({
