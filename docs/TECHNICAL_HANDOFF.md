@@ -24,7 +24,7 @@ Let P be listed price, d the discount fraction, f the platform fee fraction, and
 A target-price value is infeasible when the denominator is not positive. The UI then shows a dash. The model excludes tax, refunds, customer-acquisition costs, and expenses the operator has not entered.
 
 ## Main workflows
-Product management: add, edit, or remove records through the product dialog. The form rejects missing names, non-positive listed prices, negative cost fields, and fee/target percentages at or above 100%.
+Product management: add, edit, or remove records through the product dialog. The form rejects missing names, non-positive listed prices, negative cost fields, values above 1,000,000,000, and fee/target percentages at or above 100%. Workspace restore applies the same finite numeric bounds and rejects an invalid backup without replacing the current data.
 Price Lab: choose a product and adjust listed price, discount, extra cost, and target margin. Results update immediately. Save scenario stores a named snapshot. Save price to product explicitly applies the proposed price and target margin.
 Portability: CSV export includes assumptions and calculated unit metrics. JSON backup includes settings, products, scenarios, and version metadata. Restore validates file size and record shape and asks before replacing the current browser workspace.
 
