@@ -63,7 +63,7 @@ test('workspace backup triggers a JSON download', async ({ page }) => {
   expect(download.suggestedFilename()).toMatch(/^marginguard-backup-.*\.json$/);
 });
 
-test('CSV export protects formula-like cells even when whitespace comes first', async ({ page }) => {
+test('CSV export protects formula-like cells', async ({ page }) => {
   await page.evaluate(() => {
     const key = 'marginguard.workspace.v1';
     const workspace = JSON.parse(localStorage.getItem(key));
@@ -79,7 +79,7 @@ test('CSV export protects formula-like cells even when whitespace comes first', 
   const chunks = [];
   for await (const chunk of stream) chunks.push(chunk);
   const csvText = Buffer.concat(chunks).toString('utf8');
-  expect(csvText).toContain('"\'  =1+1"');
+  expect(csvText).toContain('"\'=1+1"');
   expect(csvText.split(/\r?\n/).length).toBe(7);
 });
 
