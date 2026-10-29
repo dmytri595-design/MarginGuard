@@ -63,4 +63,6 @@ Vercel reports the deployment as READY and the project access setting is configu
 The application is static and can run on Vercel, Netlify, Cloudflare Pages, or any static web server. Connect this GitHub repository to the buyer's hosting account and verify the deployment URL and production branch before sharing a demo as live.
 
 ## Acquisition handoff
+A buyer-facing summary of the assets, product limits, licensing terms, and transfer steps is available in [`docs/DIRECT_ACQUISITION_BRIEF.md`](docs/DIRECT_ACQUISITION_BRIEF.md).
+
 The repository uses a restrictive evaluation notice rather than an open-source license. An acquisition still needs an explicit written IP assignment or commercial license and a review of third-party notices. No user base, recurring revenue, customer contracts, or domain ownership is included or claimed.
