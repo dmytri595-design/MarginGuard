@@ -106,3 +106,22 @@ test('JSON restore sanitizes settings and ignores malformed scenarios', async ({
   expect(state.scenarios).toHaveLength(0);
   await expect(page.locator('img[src="x"]')).toHaveCount(0);
 });
+
+test('JSON restore rejects extreme numeric values without replacing valid data', async ({ page }) => {
+  const before = await page.evaluate(() => JSON.parse(localStorage.getItem('marginguard.workspace.v1')));
+  const backup = await page.evaluate(() => {
+    const workspace = JSON.parse(localStorage.getItem('marginguard.workspace.v1'));
+    workspace.products[0].price = 1e100;
+    return JSON.stringify({ ...workspace, product: 'MarginGuard', format: 'marginguard-workspace-backup' });
+  });
+  await page.locator('.nav [data-page="settings"]').click();
+  await page.locator('[data-settings-tab="data"]').click();
+  await page.locator('#import-file').setInputFiles({
+    name: 'extreme-number-backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(backup)
+  });
+  await expect(page.getByText('This file is not a valid MarginGuard backup.')).toBeVisible();
+  const after = await page.evaluate(() => JSON.parse(localStorage.getItem('marginguard.workspace.v1')));
+  expect(after.products[0].price).toBe(before.products[0].price);
+});
